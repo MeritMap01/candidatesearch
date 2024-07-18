@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CandidateEase - Job Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(90deg, #4f46e5, #7c3aed);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex h-screen">
+      <!-- Sidebar (same as dashboard) -->
+      <aside class="w-64 bg-white shadow-md">
+        <div class="p-4">
+          <h1 class="text-2xl font-bold text-gray-800">CandidateEase</h1>
+        </div>
+        <nav class="mt-4">
+          <a
+            href="dashboard.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Dashboard</a
+          >
+          <a
+            href="job-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Job Management</a
+          >
+          <a
+            href="candidate-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Candidate Management</a
+          >
+          <a
+            href="interview-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Interview Management</a
+          >
+          <a
+            href="evaluation-ranking.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Evaluation & Ranking</a
+          >
+          <a
+            href="offer-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Offer Management</a
+          >
+          <a
+            href="onboarding.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Onboarding</a
+          >
+          <a
+            href="#"
+            class="block py-2 px-4 text-gray-700 bg-gray-200 hover:bg-gray-300"
+            >Settings</a
+          >
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 overflow-y-auto">
+        <!-- Top Navigation -->
+        <header class="bg-white shadow-sm">
+          <div
+            class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center"
+          >
+            <h2
+              class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
+            >
+              Job Management
+            </h2>
+            <div class="flex items-center">
+              <button class="mr-4 text-gray-500 hover:text-gray-700">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                class="h-8 w-8 rounded-full"
+                src="/api/placeholder/32/32"
+                alt="User avatar"
+              />
+            </div>
+          </div>
+        </header>
+
+        <!-- Job Management Content -->
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <!-- Tabs -->
+          <div class="mb-4 border-b border-gray-200">
+            <ul class="flex flex-wrap -mb-px">
+              <li class="mr-2">
+                <a
+                  class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active"
+                  aria-current="page"
+                  href="#"
+                  >Create Job</a
+                >
+              </li>
+              <li class="mr-2">
+                <a
+                  class="inline-block p-4 text-gray-600 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                  href="#"
+                  >Manage Jobs</a
+                >
+              </li>
+              <li class="mr-2">
+                <a
+                  class="inline-block p-4 text-gray-600 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                  href="#"
+                  >Job Analytics</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Create Job Form -->
+          <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Create New Job Posting
+              </h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                Fill in the details below to create a new job posting.
+              </p>
+            </div>
+            <div class="border-t border-gray-200">
+              <form class="px-4 py-5 sm:p-6">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-6 sm:col-span-3">
+                    <label
+                      for="job-title"
+                      class="block text-sm font-medium text-gray-700"
+                      >Job Title</label
+                    >
+                    <input
+                      type="text"
+                      name="job-title"
+                      id="job-title"
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label
+                      for="department"
+                      class="block text-sm font-medium text-gray-700"
+                      >Department</label
+                    >
+                    <select
+                      id="department"
+                      name="department"
+                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    >
+                      <option>Engineering</option>
+                      <option>Marketing</option>
+                      <option>Sales</option>
+                      <option>Customer Support</option>
+                    </select>
+                  </div>
+                  <div class="col-span-6">
+                    <label
+                      for="job-description"
+                      class="block text-sm font-medium text-gray-700"
+                      >Job Description</label
+                    >
+                    <textarea
+                      id="job-description"
+                      name="job-description"
+                      rows="3"
+                      class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    ></textarea>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label
+                      for="experience"
+                      class="block text-sm font-medium text-gray-700"
+                      >Required Experience (years)</label
+                    >
+                    <input
+                      type="number"
+                      name="experience"
+                      id="experience"
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label
+                      for="salary-range"
+                      class="block text-sm font-medium text-gray-700"
+                      >Salary Range</label
+                    >
+                    <input
+                      type="text"
+                      name="salary-range"
+                      id="salary-range"
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      placeholder="e.g. $50,000 - $70,000"
+                    />
+                  </div>
+                </div>
+                <div class="mt-6">
+                  <button
+                    type="submit"
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white gradient-bg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Create Job Posting
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- AI Assistance -->
+          <div class="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                AI Job Description Assistant
+              </h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                Get AI-powered suggestions to enhance your job description.
+              </p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+              <button
+                type="button"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Generate Suggestions
+              </button>
+              <div class="mt-4 p-4 bg-gray-100 rounded-md">
+                <p class="text-sm text-gray-600">
+                  AI-generated suggestions will appear here...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Add any necessary JavaScript for interactivity
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Handle form submission (in a real app, this would send data to a server)
+        alert("Job posting created! (This is a demo)");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CandidateEase - Evaluation and Ranking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(90deg, #4f46e5, #7c3aed);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white shadow-md">
+        <div class="p-4">
+          <h1 class="text-2xl font-bold text-gray-800">CandidateEase</h1>
+        </div>
+        <nav class="mt-4">
+          <a
+            href="dashboard.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Dashboard</a
+          >
+          <a
+            href="job-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Job Management</a
+          >
+          <a
+            href="candidate-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Candidate Management</a
+          >
+          <a
+            href="interview-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Interview Management</a
+          >
+          <a
+            href="#"
+            class="block py-2 px-4 text-gray-700 bg-gray-200 hover:bg-gray-300"
+            >Evaluation & Ranking</a
+          >
+          <a
+            href="offer-management.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Offer Management</a
+          >
+          <a
+            href="onboarding.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Onboarding</a
+          >
+          <a
+            href="settings.html"
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+            >Settings</a
+          >
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 overflow-y-auto">
+        <!-- Top Navigation -->
+        <header class="bg-white shadow-sm">
+          <div
+            class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center"
+          >
+            <h2
+              class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"
+            >
+              Evaluation and Ranking
+            </h2>
+            <div class="flex items-center">
+              <button class="mr-4 text-gray-500 hover:text-gray-700">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                class="h-8 w-8 rounded-full"
+                src="/api/placeholder/32/32"
+                alt="User avatar"
+              />
+            </div>
+          </div>
+        </header>
+
+        <!-- Evaluation and Ranking Content -->
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <!-- Tabs -->
+          <div class="mb-4 border-b border-gray-200">
+            <ul
+              class="flex flex-wrap -mb-px"
+              id="evaluationTabs"
+              role="tablist"
+            >
+              <li class="mr-2" role="presentation">
+                <button
+                  class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active"
+                  id="evaluate-tab"
+                  data-tabs-target="#evaluate"
+                  type="button"
+                  role="tab"
+                  aria-controls="evaluate"
+                  aria-selected="true"
+                >
+                  Evaluate Candidates
+                </button>
+              </li>
+              <li class="mr-2" role="presentation">
+                <button
+                  class="inline-block p-4 text-gray-600 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                  id="rank-tab"
+                  data-tabs-target="#rank"
+                  type="button"
+                  role="tab"
+                  aria-controls="rank"
+                  aria-selected="false"
+                >
+                  Rank Candidates
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab Contents -->
+          <div id="evaluationTabContent">
+            <!-- Evaluate Candidates -->
+            <div
+              class="bg-white shadow overflow-hidden sm:rounded-lg"
+              id="evaluate"
+              role="tabpanel"
+              aria-labelledby="evaluate-tab"
+            >
+              <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Evaluate Candidates
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                  Review and score candidates based on various criteria.
+                </p>
+              </div>
+              <div class="border-t border-gray-200">
+                <ul class="divide-y divide-gray-200">
+                  <li class="px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between">
+                      <h4 class="text-sm font-medium text-indigo-600">
+                        John Doe - Software Engineer
+                      </h4>
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >New</span
+                      >
+                    </div>
+                    <div class="mt-2 sm:flex sm:justify-between">
+                      <div class="sm:flex">
+                        <p class="flex items-center text-sm text-gray-500">
+                          Applied on Jan 15, 2023
+                        </p>
+                      </div>
+                      <div
+                        class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0"
+                      >
+                        <button class="text-indigo-600 hover:text-indigo-900">
+                          Evaluate
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- Add more candidate listings here -->
+                </ul>
+              </div>
+            </div>
+
+            <!-- Rank Candidates -->
+            <div
+              class="hidden bg-white shadow overflow-hidden sm:rounded-lg"
+              id="rank"
+              role="tabpanel"
+              aria-labelledby="rank-tab"
+            >
+              <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                  Rank Candidates
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                  View and adjust candidate rankings based on evaluations.
+                </p>
+              </div>
+              <div class="border-t border-gray-200">
+                <ul class="divide-y divide-gray-200">
+                  <li class="px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between">
+                      <h4 class="text-sm font-medium text-indigo-600">
+                        1. Jane Smith - Product Manager
+                      </h4>
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                        >Score: 92</span
+                      >
+                    </div>
+                    <div class="mt-2 sm:flex sm:justify-between">
+                      <div class="sm:flex">
+                        <p class="flex items-center text-sm text-gray-500">
+                          Evaluated on Feb 1, 2023
+                        </p>
+                      </div>
+                      <div
+                        class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0"
+                      >
+                        <button class="text-indigo-600 hover:text-indigo-900">
+                          View Details
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- Add more ranked candidate listings here -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI-Assisted Evaluation -->
+          <div class="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                AI-Assisted Evaluation
+              </h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                Get AI-powered insights to assist in candidate evaluation.
+              </p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+              <button
+                type="button"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white gradient-bg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Generate AI Insights
+              </button>
+              <div class="mt-4 p-4 bg-gray-100 rounded-md">
+                <p class="text-sm text-gray-600">
+                  AI-generated insights will appear here...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Tab functionality
+      let tabs = document.querySelectorAll('[role="tab"]');
+      let tabContents = document.querySelectorAll('[role="tabpanel"]');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", changeTabs);
+      });
+
+      function changeTabs(e) {
+        let target = e.target;
+        let parent = target.parentNode;
+        let grandparent = parent.parentNode;
+
+        // Remove all current selected tabs
+        parent
+          .querySelectorAll('[aria-selected="true"]')
+          .forEach((t) => t.setAttribute("aria-selected", false));
+
+        // Set this tab as selected
+        target.setAttribute("aria-selected", true);
+
+        // Hide all tab panels
+        grandparent
+          .querySelectorAll('[role="tabpanel"]')
+          .forEach((p) => p.classList.add("hidden"));
+
+        // Show the selected panel
+        grandparent.parentNode
+          .querySelector(`#${target.getAttribute("aria-controls")}`)
+          .classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

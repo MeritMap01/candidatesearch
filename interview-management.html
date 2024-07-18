@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CandidateEase - Interview Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold text-gray-800">CandidateEase</h1>
+            </div>
+            <nav class="mt-4">
+                <a href="dashboard.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Dashboard</a>
+                <a href="job-management.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Job Management</a>
+                <a href="candidate-management.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Candidate Management</a>
+                <a href="#" class="block py-2 px-4 text-gray-700 bg-gray-200 hover:bg-gray-300">Interview Management</a>
+                <a href="evaluation-ranking.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Evaluation & Ranking</a>
+                <a href="offer-management.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Offer Management</a>
+                <a href="onboarding.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Onboarding</a>
+                <a href="settings.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                        Interview Management
+                    </h2>
+                    <div class="flex items-center">
+                        <button class="mr-4 text-gray-500 hover:text-gray-700">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                            </svg>
+                        </button>
+                        <img class="h-8 w-8 rounded-full" src="/api/placeholder/32/32" alt="User avatar" />
+                    </div>
+                </div>
+            </header>
+
+            <!-- Interview Management Content -->
+            <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <!-- Tabs -->
+                <div class="mb-4 border-b border-gray-200">
+                    <ul class="flex flex-wrap -mb-px" id="interviewTabs" role="tablist">
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active" id="schedule-tab" data-tabs-target="#schedule" type="button" role="tab" aria-controls="schedule" aria-selected="true">Schedule Interview</button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 text-gray-600 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="questions-tab" data-tabs-target="#questions" type="button" role="tab" aria-controls="questions" aria-selected="false">Interview Questions</button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 text-gray-600 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="feedback-tab" data-tabs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false">Interview Feedback</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Contents -->
+                <div id="interviewTabContent">
+                    <!-- Schedule Interview -->
+                    <div class="bg-white shadow overflow-hidden sm:rounded-lg" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                        <div class="px-4 py-5 sm:px-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Schedule New Interview</h3>
+                            <p class="mt-1 max-w-2xl text-sm text-gray-500">Set up an interview with a candidate.</p>
+                        </div>
+                        <div class="border-t border-gray-200">
+                            <form class="px-4 py-5 sm:p-6">
+                                <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="candidate-name" class="block text-sm font-medium text-gray-700">Candidate Name</label>
+                                        <input type="text" name="candidate-name" id="candidate-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="interview-type" class="block text-sm font-medium text-gray-700">Interview Type</label>
+                                        <select id="interview-type" name="interview-type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                            <option>Technical</option>
+                                            <option>Behavioral</option>
+                                            <option>Case Study</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="interview-date" class="block text-sm font-medium text-gray-700">Date</label>
+                                        <input type="date" name="interview-date" id="interview-date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="interview-time" class="block text-sm font-medium text-gray-700">Time</label>
+                                        <input type="time" name="interview-time" id="interview-time" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white gradient-bg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        Schedule Interview
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Interview Questions -->
+                    <div class="hidden bg-white shadow overflow-hidden sm:rounded-lg" id="questions" role="tabpanel" aria-labelledby="questions-tab">
+                        <div class="px-4 py-5 sm:px-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Interview Questions</h3>
+                            <p class="mt-1 max-w-2xl text-sm text-gray-500">Manage and customize interview questions.</p>
+                        </div>
+                        <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+                            <ul class="divide-y divide-gray-200">
+                                <li class="py-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium text-gray-900">Tell me about a challenging project you've worked on.</h4>
+                                        <button class="text-sm text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    </div>
+                                    <p class="mt-1 text-sm text-gray-600">Type: Behavioral</p>
+                                </li>
+                                <li class="py-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium text-gray-900">Explain the concept of object-oriented programming.</h4>
+                                        <button class="text-sm text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    </div>
+                                    <p class="mt-1 text-sm text-gray-600">Type: Technical</p>
+                                </li>
+                            </ul>
+                            <div class="mt-6">
+                                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white gradient-bg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Add New Question
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interview Feedback -->
+                    <div class="hidden bg-white shadow overflow-hidden sm:rounded-lg" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+                        <div class="px-4 py-5 sm:px-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Interview Feedback</h3>
+                            <p class="mt-1 max-w-2xl text-sm text-gray-500">Review and submit feedback for interviews.</p>
+                        </div>
+                        <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+                            <form>
+                                <div class="mb-4">
+                                    <label for="candidate-name" class="block text-sm font-medium text-gray-700">Candidate Name</label>
+                                    <input type="text" name="candidate-name" id="candidate-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="interview-date" class="block text-sm font-medium text-gray-700">Interview Date</label>
+                                    <input type="date" name="interview-date" id="interview-date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="feedback" class="block text-sm font-medium text-gray-700">Feedback</label>
+                                    <textarea id="feedback" name="feedback" rows="3" class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="rating" class="block text-sm font-medium text-gray-700">Overall Rating</label>
+                                    <select id="rating" name="rating" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option>Excellent</option>
+                                        <option>Good</option>
+                                        <option>Average</option>
+                                        <option>Below Average</option>
+                                        <option>Poor</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white gradient-bg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        Submit Feedback
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab functionality
+        let tabs = document.querySelectorAll('[role="tab"]');
+        let tabContents = document.querySelectorAll('[role="tabpanel"]');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', changeTabs);
+        });
+
+        function changeTabs(e) {
+            let target = e.target;
+            let parent = target.parentNode;
+            let grandparent = parent.parentNode;
+
+            // Remove all current selected tabs
+            parent
+                .
